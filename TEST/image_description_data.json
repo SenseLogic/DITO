@@ -1,0 +1,17 @@
+{
+  "": {
+    "forest": "a person walking down a snowy path in the woods",
+    "plane": "a blue and white plane",
+    "ship": "two large ships in the water",
+    "train": "snow on the ground"
+  },
+  "animal/": {
+    "cow": "a brown cow standing on top of a grass covered hill",
+    "robin": "a small bird sitting on a branch in the snow",
+    "weaver": "a red bird sitting on a branch"
+  },
+  "landscape/": {
+    "mountains": "a body of water",
+    "mountains_2": "a clear blue sky"
+  }
+}

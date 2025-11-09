@@ -1,0 +1,58 @@
+// -- VARIABLES
+
+var ImageDescriptionData = [];
+
+// -- FUNCTIONS
+
+function SetImageDescriptionData(
+    object image_description_data
+    )
+{
+    global
+        ImageDescriptionData;
+
+    ImageDescriptionData = image_description_data;
+}
+
+// ~~
+
+function GetImageDescription(
+    string image_file_path
+    )
+{
+    global
+        ImageDescriptionData;
+
+    var last_slash_character_index = strrpos( image_file_path, '/' );
+
+    if ( last_slash_character_index !== false )
+    {
+        var image_folder_path = substr( image_file_path, 0, last_slash_character_index + 1 );
+        var image_file_name = substr( image_file_path, last_slash_character_index + 1 );
+    }
+    else
+    {
+        image_folder_path = '';
+        image_file_name = image_file_path;
+    }
+
+    var first_dot_character_index = strpos( image_file_name, '.' );
+
+    if ( first_dot_character_index !== false )
+    {
+        var image_file_label = substr( image_file_name, 0, first_dot_character_index );
+    }
+    else
+    {
+        image_file_label = image_file_name;
+    }
+
+    if ( isset( ImageDescriptionData[ image_folder_path ][ image_file_label ] ) )
+    {
+        return ImageDescriptionData[ image_folder_path ][ image_file_label ];
+    }
+    else
+    {
+        return str_replace( '-', ' ', str_replace( '_', ' ', image_file_label ) );
+    }
+}
